@@ -11,6 +11,7 @@ class App extends React.Component {
     // initial state
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
+    this.addToOrder = this.addToOrder.bind(this);
     this.state = {
       fishes: {},
       order: {}
@@ -29,6 +30,16 @@ class App extends React.Component {
       fishes: sampleFishes
     })
   }
+
+  addToOrder(key) {
+    // copy of state
+    const order = {...this.state.order};
+    // update the new order fish
+    order[key] = order[key] + 1 || 1;
+    // update state
+    this.setState({ order });
+  }
+
  render() {
    // Always comment outside of JSX
    return (
@@ -39,7 +50,7 @@ class App extends React.Component {
            {
              Object
               .keys(this.state.fishes)
-              .map(key => <Fish key={key} details={this.state.fishes[key]}/>)
+              .map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder}/>)
            }
          </ul>
        </div>

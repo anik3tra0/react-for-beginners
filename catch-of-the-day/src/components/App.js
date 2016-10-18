@@ -8,9 +8,9 @@ class App extends React.Component {
    // Always comment outside of JSX
    return (
      <div className="catch-of-the-day">
-      <div className="menu">
-        <Header />
-      </div>
+       <div className="menu">
+         <Header tagline="Fresh Seafood Market"/>
+       </div>
       <Order />
       <Inventory />
      </div>

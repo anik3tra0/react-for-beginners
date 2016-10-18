@@ -8,8 +8,9 @@ class StorePicker extends React.Component {
 		console.log("Noe You See Me!");
 		// Two Things
 		// 	Grab Input Value
-		console.log(this.storeInput.value);
+		const storeId = this.storeInput.value;
 		// 	Redirect to store with store id
+		this.context.router.transitionTo(`/store/${ storeId }`)
 	}
 
 	render() {
@@ -23,6 +24,10 @@ class StorePicker extends React.Component {
 		)
 
 	}
+}
+
+StorePicker.contextTypes = {
+	router: React.PropTypes.object
 }
 
 export default StorePicker;
